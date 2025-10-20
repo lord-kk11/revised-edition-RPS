@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper Scissors</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+    <div id="game-container"   tabindex="0" class="modal">
+
+        <header class="game-header">
+            <div id="gems">Gems:<span id="gems-unit">0</span></div>
+            
+           
+
+            <div id="hearts-container">
+
+                <span class="hearts" id="heart-1"></span>
+                <span class="hearts" id="heart-2"></span>
+                <span class="hearts" id="heart-3"></span>
+                <span class="hearts" id="heart-4"></span>
+                <span class="hearts" id="heart-5"></span>
+
+            </div>
+        </header>
+
+
+
+        <!--main game area-->
+
+<main>
+    <div id="user-and-com-container">
+      <div id="user-img" class="img"><img id="img-1" src="left_rock.png"></div>
+      <div id="vs">VS</div>
+
+      <div id="com-img" class="img"><img id="img-2" src="right_rock.png"></div>
+
+    </div>
+
+
+ <div id="user-com-name">
+     <div id="input-container"><input id="user-input" value="" placeholder="Enter your Name" required></div> 
+       <div id="com">Com</div>
+    </div>
+
+</main>
+  <button id="help-button">Help</button>
+
+
+        <footer id="game-footer">
+          
+
+            <div id="button-container">
+
+                <button class="main-button" id="Rock" value="Rock">Rock</button>
+                <button class="main-button" id="Paper" value="Paper">Paper</button>
+                <button class="main-button" id="Scissors" value="scissors">Scissors</button>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+       <div id="start-screen" class="modal" tabindex="0" >
+  <div id="start-content">
+    <h1>Rock Paper Scissors</h1>
+    <p>Can you beat the computer?</p>
+    <button id="start-btn">Start Game</button>
+  </div>
+</div>
+
+
+
+
+
+        <button id="buy-lives" class="modal">Revive me</button>
+
+        <div id="intro" class="modal" >
+           
+                <p>Welcome to the game! Click Rock, Paper, or Scissors to begin.</p>
+        <button id="remove-help">Close</button>
+        
+        </div>
+
+        <div id="loss-container" class="modal">
+            <div class="loss-1" id="l">YOU LOSE</div>
+            <p class="loss-1">Do you want to retry</p>
+            <div id="y-n"> <button id="y">Yes</button> <button id="n">No</button> </div>
+
+        </div>
+
+
+
+
+ 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+/*set uo and variables*/
+:root {
+    --bg-pink: rgb(243, 181, 192);
+    --bg-pink-hover: rgb(246, 123, 143);
+    --bg-yellow: rgb(244, 244, 67);
+    --bg-yellow-hover:rgb(245, 245, 118);
+    --bg-modal: rgb(171, 189, 183);
+    --text-dark: rgb(22, 21, 21);
+    --heart-red: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    color: var(--text-dark);
+}
+
+
+/*main game container(flex box layout)*/
+
+
+#game-container {
+   display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: space-between; /* Pushes header up and footer down */
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1024px; /* Constrains width on large screens */
+    margin: 0 auto; /* Centers the container */
+    padding: 1rem;
+    overflow: hidden;
+    display: none;
+}
+
+/* --- 3. Header: Score & Lives --- */
+.game-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#gems{
+    font-size: 120%;
+    color: rgb(214, 50, 77);
+    font-weight: bold;
+}
+
+#buy-lives {
+    background-color: rgb(39, 74, 71);
+    color: white;
+    border: 1px solid outset;
+    border-radius: 10px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top:50%;
+    font-size: 150%;
+    display: none;
+}
+
+#buy-lives:hover{
+      background-color: rgb(151, 206, 201);
+      font-size:148% ;
+       border-style: inset;
+}
+
+
+#hearts-container{
+   display: flex;
+    gap: 0.5rem; /* Space between hearts */
+
+}
+
+
+  .hearts {
+    position: relative;
+    width: 20px;
+    height: 15px;
+    background: linear-gradient(145deg, #ff4d4d,var(--heart-red));
+    transform: rotate(-45deg);
+    box-shadow: 0px 5px 10px rgba(1, 1, 1, 0.4); 
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .hearts:before,
+  .hearts:after {
+    content: "";
+    position:absolute;
+    width: 20px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    
+  }
+  
+  .hearts:before {
+    top: -7px;
+    left: 0;
+  }
+  
+  .hearts:after {
+    left: 7px;
+    top: 0;
+  }
+/* === MOBILE VIEW (Phones) === */
+
+
+  /* Center the game images in the middle of the screen */
+  /* === MOBILE LAYOUT FIX === */
+@media only screen and (max-width: 600px) {
+
+  #user-and-com-container {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #user-and-com-container img {
+    width: 80px;
+    height: 80px;
+  }
+
+  #vs {
+    position: relative;
+    top: 0;
+    font-size: 130%;
+    text-align: center;
+  }
+
+  
+  /* User and Com names under each image */
+  #user-com-name {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Input container under left image */
+  #input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #user-input {
+    width: 90px;
+    height: 22px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* Com name under right image */
+  #com {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-style: oblique;
+  }
+}
+
+  #start-screen {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%; height: 60%;
+    display: flex; justify-content: center; align-items: center;
+     background-color: #131212;
+    color: #f3eeee;
+    font-family: sans-serif;
+    z-index: 1000;
+    
+  }
+
+
+  #start-content {
+    text-align: center;
+    animation: fadeIn 1s ease;
+    
+  }
+
+  #start-btn {
+    padding: 10px 25px;
+    background: #4e5c62;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    transition: all 0.3s;
+  }
+
+  #start-btn:hover {
+    background: #6e7273;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+
+
+
+#vs{
+  position: relative;
+  font-size: 150%;
+  top:50%;
+}
+
+#user-input{
+
+  width:100px;
+  height:20px;
+  border: 2px solid black;
+}
+
+#com{
+  width:100px;
+  height:20px;
+  font-size: 100%;
+  text-align: center;
+  font-style: oblique;
+  font-size: 150%;
+  
+
+}
+
+
+.game-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.main-button,#help-button {
+    padding: 0.5rem;
+    border: 1px solid outset;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.main-button {
+    background-color: var(--bg-pink);
+    color: var(--text-dark);
+    flex-grow: 1; /* Makes buttons share space equally */
+    max-width: 150px;
+}
+.main-button:hover {
+    background-color: var(--bg-pink-hover);
+    transform: translateY(-2px);
+}
+
+#help-button {
+    background-color: var(--bg-yellow);
+    align-self: flex-start; /* Aligns help button to the left */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 10%;
+    top: 70%;
+
+}
+
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: center;
+    display: none; /* Hidden by default */
+    width: 90%;
+    max-width: 400px;
+}
+
+
+#intro { background-color: var(--bg-modal); border: 2px solid; }
+#intro #remove-help { margin-top: 1rem; float: right; }
+
+#loss-container { background-color: #584f4f; color: white; }
+#loss-container #l { color: #cbb0b0; }
+#loss-container #y-n { display: flex; justify-content: space-around; margin-top: 1rem; }
+#y, #n { padding: 0.5rem 1.5rem; border-radius: 10px; border: none; cursor: pointer; }
+#y { background-color: rgb(116, 226, 116); animation: yes 3s infinite .5s; }
+#n { background-color: rgb(201, 67, 67); animation: yes 3s infinite 1s; }
+
+#buy-lives { background-color: rgb(39, 74, 71); color: white; border: 1px solid; }
+
+
+/* --- 8. Animations --- */
+@keyframes yes {
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* --- 9. Responsive Adjustments (Media Query) --- */
+/* This layout is already very responsive, but we can make text and elements larger on tablets */
+@media screen and (min-width: 600px) {
+    #gems { font-size: 1.5rem; }
+    #vs { font-size: 2.5rem; }
+    .heart { width: 30px; height: 30px; }
+    .heart:before { top: -15px; left: 0; width: 30px; height: 30px; }
+    .heart:after { left: 15px; top: 0; width: 30px; height: 30px; }
+    .main-button, #help-button { font-size: 1.2rem; }
+
+
+
+
+  #user-and-com-container{
+  height: 100px;
+  width: 600px;
+   position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top:40%;
+  display:flex;
+  justify-content: space-between;
+}
+img{
+  width: 100px;
+  height: 100px;
+
+}
+
+
+#user-real-name, #user-com-name{
+  width:600px;
+  height:5px;
+  font-size: 110%;
+  position:absolute;
+  display: flex;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top: 60%;
+  justify-content: space-between;
+  text-align: center;
+  margin: auto;
+}
+
+
+
+#vs{
+  position: relative;
+  font-size: 150%;
+  top:50%;
+}
+
+#user-input{
+
+  width:100px;
+  height:20px;
+  border: 2px solid black;
+}
+
+#com{
+  width:100px;
+  height:20px;
+  font-size: 100%;
+  text-align: center;
+  font-style: oblique;
+  font-size: 150%;
+  
+
+}
+}
+
+
