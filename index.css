@@ -49,69 +49,137 @@ body {
 
 
 #gems{
-    font-size: 120%;
+    font-size: 100%;
     color: rgb(214, 50, 77);
     font-weight: bold;
+    width: 200px;
+    height:100px;
+    display: flex;
+ justify-content: center;
+  align-items: center;
 }
 
+
+#gems-unit {
+      margin-left: 0.5rem;
+}
+
+
+.unit{
+    animation: scale 1s 1 ;
+
+}
+
+@keyframes scale {
+    0% { transform: scale(1); }
+    50% { transform: scale(2); }
+    100% { transform: scale(1); }
+}
+
+
 #buy-lives {
-    background-color: rgb(39, 74, 71);
+    background-color: rgb(102, 195, 88);
     color: white;
     border: 1px solid outset;
     border-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
-    top:50%;
-    font-size: 150%;
+    top:40%;
+    font-size: 200%;
     display: none;
+    align-items: center;
+    width: 250px;
+    height: 20px;
 }
 
 #buy-lives:hover{
-      background-color: rgb(151, 206, 201);
-      font-size:148% ;
-       border-style: inset;
+      background-color: rgb(49, 142, 9);
+     color: white;
+    border: 1px solid outset;
+    border-radius: 10px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top:40%;
+    font-size: 200%;
+    display: none;
+    align-items: center;
+    width: 250px;
+    height: 20px;
+}
+#hearts-container {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.hearts {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(-45deg);
+  border-radius: 4px;
+}
+
+/* Left lobe */
+.hearts::before,
+.hearts::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+/* Left circle */
+.hearts::before {
+  top: -10px;
+  left: 0;
+}
+
+/* Right circle */
+.hearts::after {
+  left: 10px;
+  top: 0;
+}
+
+.broken-half {
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(-45deg);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.broken-half::before,
+.broken-half::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.broken-half::before {
+  top: -10px;
+  left: 0;
+}
+
+.broken-half::after {
+  left: 10px;
+  top: 0;
 }
 
 
-#hearts-container{
-   display: flex;
-    gap: 0.5rem; /* Space between hearts */
-
-}
 
 
-  .hearts {
-    position: relative;
-    width: 20px;
-    height: 15px;
-    background: linear-gradient(145deg, #ff4d4d,var(--heart-red));
-    transform: rotate(-45deg);
-    box-shadow: 0px 5px 10px rgba(1, 1, 1, 0.4); 
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .hearts:before,
-  .hearts:after {
-    content: "";
-    position:absolute;
-    width: 20px;
-    height: 15px;
-    background-color: red;
-    border-radius: 50%;
-    
-  }
-  
-  .hearts:before {
-    top: -7px;
-    left: 0;
-  }
-  
-  .hearts:after {
-    left: 7px;
-    top: 0;
-  }
+
+
+
 /* === MOBILE VIEW (Phones) === */
 
 
@@ -192,14 +260,14 @@ body {
      background-color: #131212;
     color: #f3eeee;
     font-family: sans-serif;
-    z-index: 1000;
-    
+    z-index: 2;
+animation: fadeIn 3s ease;
   }
 
 
   #start-content {
     text-align: center;
-    animation: fadeIn 1s ease;
+    animation: fadeIn 5s linear;
     
   }
 
@@ -220,7 +288,9 @@ body {
   }
 
   @keyframes fadeIn {
-    from {opacity: 0;}
+    from {opacity: 0;
+
+    }
     to {opacity: 1;}
   }
 
@@ -304,7 +374,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -404,5 +474,13 @@ img{
 
 }
 }
+
+
+#intro {
+  z-index: 2;
+
+
+}
+
 
 
